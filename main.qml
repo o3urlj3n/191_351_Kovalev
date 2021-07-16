@@ -3,8 +3,8 @@ import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.15
 
 ApplicationWindow {
-    width: 640
-    height: 480
+    width: 480
+    height: 640
     visible: true
 
     SwipeView {
@@ -52,7 +52,7 @@ ApplicationWindow {
                 Layout.alignment: Qt.AlignBottom
                 Label {
                     Layout.fillWidth: true
-                    text: qsTr("<a href=\"https://github.com/\">github/o3urlj3n</a><br>o3urlj3n@gmail.com")
+                    text: qsTr("<a href=\"https://github.com/o3urlj3n/191_351_Kovalev\">github/191_351_Kovalev</a><br>o3urlj3n@gmail.com")
                     onLinkActivated: Qt.openUrlExternally(link)
                     font.pointSize: 10
                     horizontalAlignment: Text.AlignHCenter

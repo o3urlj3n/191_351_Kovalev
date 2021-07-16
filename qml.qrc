@@ -5,5 +5,7 @@
         <file>Page1.qml</file>
         <file>Page2.qml</file>
         <file>polytech_logo_main_black.png</file>
+        <file>data/1695.jpg</file>
+        <file>data/IMG_4079.PNG</file>
     </qresource>
 </RCC>

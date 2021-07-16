@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.15
+import QtQml.Models 2.15
 
 Page {
     header: Row {
@@ -19,34 +20,72 @@ Page {
 
     ColumnLayout {
         anchors.fill: parent
-        anchors.margins: 20
         ScrollView {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            clip: true
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 
             ListView {
-                id: listView
+                id: view
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                Layout.leftMargin: 10
-                Layout.rightMargin: 10
+                spacing: 15
 
                 model: ListModel {
                     id: listModel
-                    ListElement { text: "qwe" }
-                    ListElement { text: "qwe" }
-                    ListElement { text: "qwe" }
-                    ListElement { text: "qwe" }
-                    ListElement { text: "qwe" }
+                    ListElement {
+                        image: "data/IMG_4079.PNG"
+                        title: "Московский Политех представил электромотоцикл в конгрессно-выставочном центре «Патриот»"
+                        date: "15 Июля 2021"
+                    }
+                    ListElement {
+                        image: "data/1695.jpg"
+                        title: "Единовременная поддержка студентов, соблюдающих самоизоляцию в общежитии"
+                        date: "13 Июля 2021"
+                    }
+                    ListElement {
+                        image: "data/IMG_4079.PNG"
+                        title: "Московский Политех представил электромотоцикл в конгрессно-выставочном центре «Патриот»"
+                        date: "15 Июля 2021"
+                    }
+                    ListElement {
+                        image: "data/IMG_4079.PNG"
+                        title: "Московский Политех представил электромотоцикл в конгрессно-выставочном центре «Патриот»"
+                        date: "15 Июля 2021"
+                    }
                 }
 
-                spacing: 3
-                delegate: RowLayout {
-                    width: listView.width
-                    Label {
-                        text: model.text
+                delegate: Item {
+                    width: view.width
+                    height: img.height
+                    Image {
+                        id: img
+                        anchors.centerIn: parent
+                        width: view.width
+                        source: model.image
+                        fillMode: Image.PreserveAspectFit
+
+                        Rectangle {
+                            anchors.fill: parent
+
+                            color: "#A0000000"
+                            Label {
+                                anchors.margins: 20
+                                anchors.bottom: parent.bottom
+                                anchors.left: parent.left
+                                width: parent.width - anchors.margins * 2
+                                wrapMode: Text.WordWrap
+                                text: model.title
+                                font.pointSize: 20
+                            }
+                            Label {
+                                anchors.margins: 20
+                                text: model.date
+                                horizontalAlignment: Text.AlignRight
+                                anchors.top: parent.top
+                                anchors.right: parent.right
+                            }
+                        }
                     }
                 }
             }
