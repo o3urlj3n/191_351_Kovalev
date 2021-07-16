@@ -10,7 +10,7 @@ ApplicationWindow {
     SwipeView {
         id: swipeView
         anchors.fill: parent
-        currentIndex: tabBar.currentIndex
+        currentIndex: 0
 
         Page1 {
         }
@@ -23,7 +23,7 @@ ApplicationWindow {
         id: drawer
         width: Math.min(200, parent.width)
         height: parent.height
-//        dragMargin: 50
+        //dragMargin: 50
 
         ColumnLayout {
             width: parent.width
@@ -45,8 +45,8 @@ ApplicationWindow {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 Layout.alignment: Qt.AlignTop
-                TabButton { property int n: 1; text: qsTr("Page "+n); onClicked: { swipeView.currentIndex = n-1; drawer.close() } Layout.fillWidth: true }
-                TabButton { property int n: 2; text: qsTr("Page "+n); onClicked: { swipeView.currentIndex = n-1; drawer.close() } Layout.fillWidth: true }
+                TabButton { property int n: 1; text: qsTr("Войти"); onClicked: { swipeView.currentIndex = n-1; drawer.close() } Layout.fillWidth: true }
+                TabButton { property int n: 2; text: qsTr("Новости"); onClicked: { swipeView.currentIndex = n-1; drawer.close() } Layout.fillWidth: true }
             }
             ColumnLayout {
                 Layout.alignment: Qt.AlignBottom
@@ -66,18 +66,6 @@ ApplicationWindow {
                     mipmap: true
                 }
             }
-        }
-    }
-
-    footer: TabBar {
-        id: tabBar
-        currentIndex: swipeView.currentIndex
-
-        TabButton {
-            text: qsTr("Page 1")
-        }
-        TabButton {
-            text: qsTr("Page 2")
         }
     }
 }
